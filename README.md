@@ -397,7 +397,8 @@ settings.png
 
 # 👨‍💻 Author
 
-Aryan Sarvaiya
+Aryan Sarvaiya.
+
 
 ---
 
