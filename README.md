@@ -335,7 +335,7 @@ Kibana
 
 ---
 
-# 🎯 Learning Objectives
+# 🎯 Learning objectives
 
 This project demonstrates:
 
