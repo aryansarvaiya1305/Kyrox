@@ -1,211 +1,268 @@
-# 🚀 InfraPilot
-**Production Grade Cloud Deployment Platform**
+# 🚀 Kurox
 
-InfraPilot is a full-stack cloud deployment platform that enables users to deploy, monitor, and manage applications through an intuitive web interface.
+<div align="center">
 
-The project simulates the core workflow of modern cloud deployment platforms such as Vercel, Render, and Railway while demonstrating real-world DevOps practices including containerization, CI/CD, orchestration, monitoring, and centralized logging.
+### Modern Cloud Deployment Platform
 
----
+Build • Deploy • Monitor • Scale
 
-## 📌 Features
+A production-grade cloud deployment platform inspired by modern PaaS providers like **Vercel**, **Render**, and **Railway**. Kurox enables developers to deploy, monitor, and manage applications through a clean and intuitive web interface while showcasing real-world DevOps practices.
 
-### Authentication
+![Status](https://img.shields.io/badge/Status-Under%20Development-orange?style=for-the-badge)
+![Frontend](https://img.shields.io/badge/Frontend-React-blue?style=for-the-badge)
+![Backend](https://img.shields.io/badge/Backend-Node.js-green?style=for-the-badge)
+![Database](https://img.shields.io/badge/Database-MongoDB-success?style=for-the-badge)
+![Docker](https://img.shields.io/badge/Docker-Enabled-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-black?style=for-the-badge)
 
-* User Registration
-* User Login
-* JWT Authentication
-* Protected Routes
-* Session Management
-
-### Deployment Management
-
-* Upload Application (ZIP)
-* Deploy via GitHub Repository URL
-* Deployment Status Tracking
-* Deployment History
-* Deployment Details
-
-### Dashboard
-
-* Deployment Overview
-* Running Services
-* Success Rate Metrics
-* System Health Monitoring
-* Activity Feed
-* Recent Logs
-
-### Monitoring
-
-* CPU Usage
-* Memory Usage
-* Network Usage
-* Response Time
-* Uptime Monitoring
-* Deployment Metrics
-
-### Logging
-
-* Deployment Logs
-* Error Logs
-* Live Log Streaming
-* Search & Filter Logs
-* Download Logs
-
-### User Experience
-
-* Responsive Design
-* Dark Mode
-* Real-Time Updates
-* Interactive Charts
-* Notification Center
-* Command Palette
+</div>
 
 ---
 
-# 🏗 Architecture
+# 📖 Overview
+
+Kurox is a full-stack cloud deployment platform that simplifies application deployment by automating the complete deployment workflow.
+
+Instead of manually building, containerizing, deploying, and monitoring an application, users can upload a ZIP file or connect a GitHub repository and let Kurox handle the entire deployment lifecycle.
+
+The platform is designed as a learning project that demonstrates production-grade DevOps workflows including containerization, CI/CD pipelines, Kubernetes orchestration, monitoring, centralized logging, and cloud-native architecture.
+
+---
+
+# ✨ Features
+
+## 🔐 Authentication
+
+- User Registration
+- User Login
+- JWT Authentication
+- Protected Routes
+- Session Management
+- Password Hashing
+- Secure API Access
+
+---
+
+## 🚀 Deployment Management
+
+- Deploy from GitHub Repository
+- Deploy using ZIP Upload
+- Deployment History
+- Deployment Details
+- Deployment Status Tracking
+- Real-Time Deployment Progress
+- Deployment Metrics
+
+---
+
+## 📊 Dashboard
+
+- Deployment Overview
+- Running Services
+- System Health
+- Success Rate
+- Activity Timeline
+- Recent Deployments
+- Resource Monitoring
+
+---
+
+## 📈 Monitoring
+
+- CPU Usage
+- Memory Usage
+- Network Usage
+- Response Time
+- Uptime Monitoring
+- Deployment Analytics
+- Resource Consumption
+
+---
+
+## 📝 Logging
+
+- Live Deployment Logs
+- Error Logs
+- Search Logs
+- Filter Logs
+- Download Logs
+- Terminal Style Viewer
+
+---
+
+## 🎨 User Experience
+
+- Responsive UI
+- Dark Mode
+- Modern Dashboard
+- Interactive Charts
+- Real-Time Updates
+- Notification Center
+- Command Palette
+- Smooth Animations
+
+---
+
+# 🏗 System Architecture
 
 ```text
-User
- │
- ▼
-React Frontend
- │
- ▼
-Node.js API
- │
- ▼
-MongoDB
- │
- ▼
-Jenkins
- │
- ▼
-Docker
- │
- ▼
-Kubernetes
- │
- ▼
-Prometheus + Grafana
- │
- ▼
-ELK Stack
+                         User
+                           │
+                           ▼
+                  React Frontend
+                           │
+                           ▼
+                    Express API
+                           │
+                           ▼
+                      MongoDB
+                           │
+                           ▼
+                       Jenkins
+                           │
+                           ▼
+                        Docker
+                           │
+                           ▼
+                     Kubernetes
+                           │
+                           ▼
+              Prometheus + Grafana
+                           │
+                           ▼
+                       ELK Stack
 ```
 
 ---
 
 # 🖥 Frontend Stack
 
-| Technology    | Purpose            |
-| ------------- | ------------------ |
-| React         | UI Development     |
-| TypeScript    | Type Safety        |
-| Vite          | Build Tool         |
-| Tailwind CSS  | Styling            |
-| Zustand       | State Management   |
-| React Router  | Routing            |
-| Framer Motion | Animations         |
-| Recharts      | Data Visualization |
-| Lucide React  | Icons              |
+| Technology | Purpose |
+|------------|---------|
+| React | User Interface |
+| TypeScript | Type Safety |
+| Vite | Fast Build Tool |
+| Tailwind CSS | Styling |
+| Zustand | State Management |
+| React Router | Client Routing |
+| Framer Motion | Animations |
+| Recharts | Dashboard Charts |
+| Axios | API Communication |
+| Lucide React | Icons |
 
 ---
 
 # ⚙ Backend Stack
 
-| Technology | Purpose        |
-| ---------- | -------------- |
-| Node.js    | Runtime        |
-| Express.js | API Layer      |
-| JWT        | Authentication |
-| MongoDB    | Database       |
-| Mongoose   | ODM            |
+| Technology | Purpose |
+|------------|---------|
+| Node.js | JavaScript Runtime |
+| Express.js | REST API |
+| MongoDB | Database |
+| Mongoose | ODM |
+| JWT | Authentication |
+| bcrypt | Password Hashing |
+| Multer | File Upload |
+| CORS | Cross-Origin Requests |
+| dotenv | Environment Variables |
 
 ---
 
 # 🐳 DevOps Stack
 
-| Technology | Purpose          |
-| ---------- | ---------------- |
-| Docker     | Containerization |
-| Jenkins    | CI/CD            |
-| Kubernetes | Orchestration    |
-| Minikube   | Local Cluster    |
-| Prometheus | Metrics          |
-| Grafana    | Visualization    |
-| ELK Stack  | Logging          |
+| Technology | Purpose |
+|------------|---------|
+| Docker | Containerization |
+| Jenkins | CI/CD Pipeline |
+| Kubernetes | Container Orchestration |
+| Minikube | Local Kubernetes Cluster |
+| Prometheus | Metrics Collection |
+| Grafana | Metrics Visualization |
+| ELK Stack | Centralized Logging |
+| GitHub | Source Code Management |
 
 ---
 
 # 📂 Project Structure
 
 ```text
-InfraPilot/
+Kurox/
 
-frontend/
-├── public/
-├── src/
-│   ├── assets/
-│   ├── components/
-│   ├── charts/
-│   ├── hooks/
-│   ├── layout/
-│   ├── pages/
-│   ├── router/
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   │   ├── assets/
+│   │   ├── components/
+│   │   ├── charts/
+│   │   ├── hooks/
+│   │   ├── layouts/
+│   │   ├── pages/
+│   │   ├── router/
+│   │   ├── services/
+│   │   ├── store/
+│   │   ├── types/
+│   │   ├── utils/
+│   │   ├── App.tsx
+│   │   └── main.tsx
+│   └── package.json
+│
+├── backend/
+│   ├── controllers/
+│   ├── middleware/
+│   ├── models/
+│   ├── routes/
 │   ├── services/
-│   ├── store/
-│   ├── types/
+│   ├── config/
 │   ├── utils/
-│   ├── App.tsx
-│   └── main.tsx
-
-backend/
-├── controllers/
-├── middleware/
-├── models/
-├── routes/
-├── services/
-├── utils/
-
-database/
-
-docker/
-
-jenkins/
-
-k8s/
-
-monitoring/
-
-logging/
-
-docs/
+│   ├── uploads/
+│   ├── server.js
+│   └── package.json
+│
+├── docker/
+├── kubernetes/
+├── jenkins/
+├── monitoring/
+├── logging/
+├── database/
+├── docs/
+└── README.md
 ```
 
 ---
 
-# 🚀 Frontend Setup
+# 🚀 Getting Started
 
 ## Clone Repository
 
 ```bash
-git clone https://github.com/yourusername/infrapilot.git
+git clone https://github.com/aryansarvaiya1305/Kyrox.git
 
-cd infrapilot/frontend
+cd Kyrox
 ```
 
-## Install Dependencies
+---
+
+# 🖥 Frontend Setup
+
+Move to the frontend directory.
+
+```bash
+cd frontend
+```
+
+Install dependencies.
 
 ```bash
 npm install
 ```
 
-## Run Development Server
+Run the development server.
 
 ```bash
 npm run dev
 ```
 
-Application:
+Frontend runs at:
 
 ```text
 http://localhost:5173
@@ -213,17 +270,27 @@ http://localhost:5173
 
 ---
 
-# 🔧 Backend Setup
+# ⚙ Backend Setup
+
+Move to the backend directory.
 
 ```bash
 cd backend
+```
 
+Install dependencies.
+
+```bash
 npm install
+```
 
+Run the backend server.
+
+```bash
 npm run dev
 ```
 
-Backend API:
+Backend runs at:
 
 ```text
 http://localhost:5000
@@ -231,70 +298,154 @@ http://localhost:5000
 
 ---
 
-# 📊 Dashboard Modules
+# 🌐 Environment Variables
 
-### Dashboard
+Create a `.env` file inside the backend directory.
 
-* Metrics Cards
-* Deployment Trends
-* Activity Feed
-* Resource Monitoring
+```env
+PORT=5000
 
-### Deployments
+MONGODB_URI=your_mongodb_connection_string
 
-* Deployment Table
-* Status Tracking
-* Deployment Details
+JWT_SECRET=your_secret_key
 
-### Monitoring
-
-* CPU Metrics
-* Memory Metrics
-* Network Metrics
-* Response Metrics
-
-### Logs
-
-* Terminal Style Logs
-* Search & Filtering
-* Live Updates
-
-### Settings
-
-* Profile Settings
-* Notification Settings
-* Security Settings
-* API Key Management
-
----
-
-# 🔄 Deployment Pipeline
-
-```text
-Source Code
-      │
-      ▼
-Build
-      │
-      ▼
-Docker Image
-      │
-      ▼
-Push Registry
-      │
-      ▼
-Kubernetes Deploy
-      │
-      ▼
-Health Check
-      │
-      ▼
-Application Running
+CLIENT_URL=http://localhost:5173
 ```
 
 ---
 
-# 📈 Monitoring Flow
+# 📡 API Base URL
+
+```text
+Development:
+http://localhost:5000/api
+
+Production:
+Coming Soon
+```
+
+---
+
+# 📊 Dashboard Modules
+
+## 🏠 Dashboard
+
+The Dashboard provides a centralized overview of the platform, allowing users to monitor deployments, infrastructure health, and system performance at a glance.
+
+### Modules
+
+- 📦 Total Deployments
+- 🟢 Running Applications
+- 📈 Deployment Trends
+- 💻 CPU Usage
+- 🧠 Memory Usage
+- 🌐 Network Traffic
+- ⚡ Response Time
+- 📋 Recent Activity
+- 📝 Latest Deployment Logs
+
+---
+
+## 🚀 Deployments
+
+Manage and monitor application deployments from a single interface.
+
+### Features
+
+- Deploy from GitHub Repository
+- Upload ZIP Application
+- Deployment History
+- Deployment Status
+- Deployment Details
+- Redeploy Existing Project
+- Delete Deployment
+- Search & Filter Deployments
+
+---
+
+## 📈 Monitoring
+
+Real-time infrastructure monitoring powered by Prometheus and Grafana.
+
+### Metrics
+
+- CPU Usage
+- Memory Usage
+- Disk Usage
+- Network Traffic
+- Response Time
+- Uptime
+- Container Health
+- Kubernetes Pod Status
+
+---
+
+## 📝 Logs
+
+A centralized logging system for debugging and monitoring application behavior.
+
+### Features
+
+- Live Deployment Logs
+- Error Logs
+- Build Logs
+- Search Logs
+- Filter Logs
+- Download Logs
+- Terminal Style Viewer
+
+---
+
+## ⚙ Settings
+
+Customize your account and platform preferences.
+
+### Modules
+
+- Profile Settings
+- Security Settings
+- Notification Settings
+- API Key Management
+- Theme Settings
+- Connected GitHub Account
+
+---
+
+# 🔄 Deployment Workflow
+
+Kurox automates the complete deployment lifecycle.
+
+```text
+GitHub Repository / ZIP Upload
+               │
+               ▼
+      Source Code Validation
+               │
+               ▼
+       Install Dependencies
+               │
+               ▼
+        Build Application
+               │
+               ▼
+      Create Docker Image
+               │
+               ▼
+     Push Image to Registry
+               │
+               ▼
+   Deploy to Kubernetes Cluster
+               │
+               ▼
+       Health Check & Verification
+               │
+               ▼
+       Application Goes Live 🚀
+```
+
+---
+
+# 📈 Monitoring Architecture
 
 ```text
 Application
@@ -303,12 +454,17 @@ Application
 Prometheus
       │
       ▼
-Grafana Dashboard
+Grafana
+      │
+      ▼
+Dashboard Charts
 ```
+
+Prometheus continuously collects infrastructure metrics, while Grafana visualizes them in interactive dashboards.
 
 ---
 
-# 📝 Logging Flow
+# 📝 Logging Architecture
 
 ```text
 Application
@@ -323,85 +479,206 @@ Elasticsearch
 Kibana
 ```
 
+The ELK Stack provides centralized log management, enabling users to search, analyze, and visualize logs efficiently.
+
 ---
 
 # 🔐 Security Features
 
-* JWT Authentication
-* Protected Routes
-* Password Hashing
-* Secure API Access
-* Role-Based Access (Future Enhancement)
+Kurox follows modern security practices.
+
+- JWT Authentication
+- Password Hashing (bcrypt)
+- Protected Routes
+- Secure REST APIs
+- Environment Variables
+- Input Validation
+- CORS Protection
+- Secure File Upload
+- Authentication Middleware
+- Role-Based Access (Upcoming)
 
 ---
 
 # 🎯 Learning Objectives
 
-This project demonstrates:
+Kurox demonstrates practical implementation of modern software engineering and DevOps concepts.
 
-* Frontend Architecture
-* Backend API Design
-* Authentication & Authorization
-* CI/CD Pipelines
-* Docker Containerization
-* Kubernetes Deployment
-* Monitoring & Observability
-* Centralized Logging
-* Production-Style Project Structure
+### Full Stack Development
+
+- React
+- TypeScript
+- Express.js
+- MongoDB
+
+### Backend Engineering
+
+- REST APIs
+- Authentication
+- File Uploads
+- Error Handling
+- Middleware
+- Database Design
+
+### DevOps
+
+- Docker
+- Jenkins
+- Kubernetes
+- CI/CD Pipelines
+
+### Observability
+
+- Prometheus
+- Grafana
+- ELK Stack
+- Application Monitoring
+
+### Software Architecture
+
+- Modular Project Structure
+- Scalable Backend Design
+- Production Workflow
+- Deployment Automation
 
 ---
 
 # 📸 Screenshots
 
-Add screenshots after implementation:
+Screenshots will be added after implementation.
 
 ```text
-docs/screenshots/
-
-dashboard.png
-deployments.png
-monitoring.png
-logs.png
-settings.png
+docs/
+└── screenshots/
+    ├── landing-page.png
+    ├── login.png
+    ├── dashboard.png
+    ├── deployments.png
+    ├── monitoring.png
+    ├── logs.png
+    ├── settings.png
+    └── deployment-details.png
 ```
 
 ---
 
-# 🛣 Roadmap
+# 🛣 Development Roadmap
 
-### Phase 1
+## ✅ Version 1.0
 
-* Frontend Development
+- Frontend Development
+- Backend Development
+- JWT Authentication
+- MongoDB Integration
+- Deployment Dashboard
+- Deployment Management
 
-### Phase 2
+---
 
-* Backend Development
+## 🚀 Version 2.0
 
-### Phase 3
+- Docker Integration
+- Jenkins CI/CD
+- Kubernetes Deployment
+- Monitoring Dashboard
+- Centralized Logging
 
-* Docker Integration
+---
 
-### Phase 4
+## ☁ Version 3.0
 
-* Jenkins CI/CD
+- Multi-Environment Deployment
+- Deployment Rollback
+- GitHub OAuth
+- Deployment Queue
+- WebSocket Live Logs
+- Multi-Cluster Support
 
-### Phase 5
+---
 
-* Kubernetes Deployment
+# 🌟 Future Enhancements
 
-### Phase 6
+- GitHub OAuth Login
+- Google Authentication
+- Redis Caching
+- Terraform Integration
+- Multi-Cloud Deployment
+- AWS Integration
+- Azure Integration
+- Google Cloud Integration
+- Email Notifications
+- Slack Notifications
+- Discord Notifications
+- AI Deployment Assistant
+- Auto Scaling
+- Deployment Rollback
+- Custom Domains
+- SSL Automation
 
-* Monitoring & Logging
+---
+
+# 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome.
+
+If you'd like to contribute:
+
+1. Fork the repository
+2. Create a new branch
+3. Commit your changes
+4. Push the branch
+5. Open a Pull Request
+
+---
+
+# 📄 License
+
+This project is licensed under the **MIT License**.
+
+Feel free to use, modify, and learn from this project.
 
 ---
 
 # 👨‍💻 Author
 
-Aryan Sarvaiya.
+**Aryan Sarvaiya**
+
+Cloud Computing Enthusiast • DevOps Learner • Future Cloud Engineer
+
+GitHub:
+https://github.com/aryansarvaiya1305
+
+---
+
 
 
 ---
 
-# ⭐ Project Status
+# ❤️ Acknowledgements
 
-🚧 Under Active Development
+This project is inspired by modern cloud platforms and DevOps practices.
+
+Special inspiration from:
+
+- Vercel
+- Render
+- Railway
+- Docker
+- Kubernetes
+- Prometheus
+- Grafana
+- Jenkins
+
+---
+
+<div align="center">
+
+## ⭐ If you found this project helpful, consider giving it a Star!
+
+### 🚀 Kurox — Modern Cloud Deployment Platform
+
+**Build • Deploy • Monitor • Scale**
+
+Made with ❤️ by **Aryan Sarvaiya**
+
+</div>
