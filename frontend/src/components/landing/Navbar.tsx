@@ -5,7 +5,7 @@ import { Menu, X } from "lucide-react";
 import { NAV_LINKS } from "@/constants/landing";
 import { slideInTop, buttonHover } from "@/utils/landing";
 
-const Navbar = () => {
+export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -30,13 +30,13 @@ const Navbar = () => {
           </span>
         </motion.div>
 
-        {/* Desktop Menu */}
+        {/* Desktop Navigation */}
         <div className="hidden items-center gap-8 md:flex">
           {NAV_LINKS.map((link) => (
             <a
               key={link.id}
               href={link.href}
-              className="text-sm font-medium text-slate-300 transition hover:text-cyan-400"
+              className="text-sm font-medium text-slate-300 transition-colors hover:text-cyan-400"
             >
               {link.label}
             </a>
@@ -47,7 +47,7 @@ const Navbar = () => {
         <div className="hidden items-center gap-3 md:flex">
           <motion.button
             {...buttonHover}
-            className="rounded-lg px-4 py-2 text-sm text-slate-300 hover:text-white"
+            className="rounded-lg px-4 py-2 text-sm text-slate-300 transition-colors hover:text-white"
           >
             Login
           </motion.button>
@@ -60,15 +60,16 @@ const Navbar = () => {
           </motion.button>
         </div>
 
-        {/* Mobile Toggle */}
+        {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-slate-300"
           onClick={() => setIsOpen(!isOpen)}
+          className="text-slate-300 md:hidden"
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
+      {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -83,7 +84,7 @@ const Navbar = () => {
                   key={link.id}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="block text-slate-300 hover:text-cyan-400"
+                  className="block text-slate-300 transition-colors hover:text-cyan-400"
                 >
                   {link.label}
                 </a>
@@ -105,5 +106,3 @@ const Navbar = () => {
     </motion.nav>
   );
 };
-
-export default Navbar;
