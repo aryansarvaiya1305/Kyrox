@@ -2,6 +2,7 @@ import { Navbar } from "@/components/landing/Navbar";
 import { HeroBadge } from "@/components/landing/HeroBadge";
 import { HeroButtons } from "@/components/landing/HeroButtons";
 import { HeroStats } from "@/components/landing/HeroStats";
+import { DashboardPreview } from "@/components/landing/DashboardPreview";
 
 function App() {
   return (
@@ -14,6 +15,8 @@ function App() {
         <HeroButtons />
 
         <HeroStats />
+
+        <DashboardPreview />
       </div>
     </>
   );
