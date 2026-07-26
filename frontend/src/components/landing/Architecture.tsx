@@ -4,6 +4,8 @@ import {
   staggerItem,
 } from "@/utils/landing";
 
+import { DeploymentPipeline } from "@/components/landing/DeploymentPipeline";
+
 export const Architecture = () => {
   return (
     <section
@@ -16,6 +18,7 @@ export const Architecture = () => {
       </div>
 
       <div className="mx-auto max-w-7xl px-6">
+        {/* Heading */}
         <motion.div
           variants={staggerContainer}
           initial="hidden"
@@ -23,7 +26,6 @@ export const Architecture = () => {
           viewport={{ once: true }}
           className="text-center"
         >
-          {/* Badge */}
           <motion.p
             variants={staggerItem}
             className="mb-3 text-sm font-semibold uppercase tracking-[0.35em] text-cyan-400"
@@ -31,7 +33,6 @@ export const Architecture = () => {
             Architecture
           </motion.p>
 
-          {/* Heading */}
           <motion.h2
             variants={staggerItem}
             className="mx-auto max-w-4xl text-4xl font-bold leading-tight text-white md:text-5xl"
@@ -39,7 +40,6 @@ export const Architecture = () => {
             How Kurox Deploys Your Application
           </motion.h2>
 
-          {/* Description */}
           <motion.p
             variants={staggerItem}
             className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-slate-400"
@@ -50,27 +50,17 @@ export const Architecture = () => {
           </motion.p>
         </motion.div>
 
-        {/* Placeholder */}
+        {/* Deployment Pipeline */}
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="mt-20 rounded-3xl border border-slate-800 bg-slate-900/50 p-16 text-center"
+          className="mt-20 rounded-3xl border border-slate-800 bg-slate-900/50 p-10 lg:p-16"
         >
-          <motion.h3
-            variants={staggerItem}
-            className="text-2xl font-semibold text-white"
-          >
-            Deployment Pipeline
-          </motion.h3>
-
-          <motion.p
-            variants={staggerItem}
-            className="mt-4 text-slate-400"
-          >
-            Architecture diagram will be added in the next step.
-          </motion.p>
+          <motion.div variants={staggerItem}>
+            <DeploymentPipeline />
+          </motion.div>
         </motion.div>
       </div>
     </section>
