@@ -4,6 +4,8 @@ import { TrustedTechnologies } from "@/components/landing/TrustedTechnologies";
 import { Features } from "@/components/landing/Features";
 import { Architecture } from "@/components/landing/Architecture";
 import { HowItWorks } from "@/components/landing/HowItWorks";
+import { TechStack } from "@/components/landing/TechStack";
+
 function App() {
   return (
     <div className="min-h-screen bg-slate-950">
@@ -15,6 +17,7 @@ function App() {
         <Features />
         <Architecture />
         <HowItWorks/>
+        <TechStack/>
       </main>
     </div>
   );
