@@ -8,7 +8,7 @@ import {
 import { HeroBadge } from "@/components/landing/HeroBadge";
 import { HeroButtons } from "@/components/landing/HeroButtons";
 import { HeroStats } from "@/components/landing/HeroStats";
-import { DashboardPreview } from "@/components/landing/DashboardPreview";
+import { HeroDashboard } from "@/components/landing/HeroDashboard";
 
 export const Hero = () => {
   return (
@@ -60,7 +60,7 @@ export const Hero = () => {
             animate="visible"
             className="flex justify-center lg:justify-end"
           >
-            <DashboardPreview />
+            <HeroDashboard />
           </motion.div>
         </div>
       </div>

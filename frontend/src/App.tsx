@@ -5,7 +5,7 @@ import { Features } from "@/components/landing/Features";
 import { Architecture } from "@/components/landing/Architecture";
 import { HowItWorks } from "@/components/landing/HowItWorks";
 import { TechStack } from "@/components/landing/TechStack";
-
+import { DashboardSection } from "@/components/landing/DashboardSection";
 function App() {
   return (
     <div className="min-h-screen bg-slate-950">
@@ -18,6 +18,7 @@ function App() {
         <Architecture />
         <HowItWorks/>
         <TechStack/>
+        <DashboardSection/>
       </main>
     </div>
   );

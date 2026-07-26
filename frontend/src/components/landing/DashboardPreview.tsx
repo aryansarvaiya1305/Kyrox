@@ -1,201 +1,57 @@
 import { motion } from "framer-motion";
 import {
-  CheckCircle,
-  Clock,
-  Cpu,
-  HardDrive,
-  Zap,
-  Activity,
-} from "lucide-react";
-
-import {
-  slideInRight,
   staggerContainer,
   staggerItem,
-  pulse,
 } from "@/utils/landing";
-
-interface Service {
-  id: string;
-  name: string;
-  status: "running" | "building";
-}
-
-interface Metric {
-  id: string;
-  label: string;
-  value: string;
-  icon: React.ReactNode;
-}
-
-const services: Service[] = [
-  {
-    id: "1",
-    name: "frontend-service",
-    status: "running",
-  },
-  {
-    id: "2",
-    name: "auth-api",
-    status: "running",
-  },
-  {
-    id: "3",
-    name: "worker",
-    status: "building",
-  },
-];
-
-const metrics: Metric[] = [
-  {
-    id: "1",
-    label: "CPU Usage",
-    value: "31%",
-    icon: <Cpu className="h-5 w-5" />,
-  },
-  {
-    id: "2",
-    label: "Memory",
-    value: "2.4 GB",
-    icon: <HardDrive className="h-5 w-5" />,
-  },
-  {
-    id: "3",
-    label: "Network",
-    value: "Healthy",
-    icon: <Zap className="h-5 w-5" />,
-  },
-  {
-    id: "4",
-    label: "Response",
-    value: "62 ms",
-    icon: <Activity className="h-5 w-5" />,
-  },
-];
 
 export const DashboardPreview = () => {
   return (
-    <motion.div
-      variants={slideInRight}
-      initial="hidden"
-      animate="visible"
-      className="w-full max-w-lg overflow-hidden rounded-2xl border border-slate-800 bg-slate-900 shadow-xl"
+    <section
+      id="dashboard"
+      className="relative overflow-hidden bg-slate-950 py-32"
     >
-      {/* Header */}
-      <div className="flex items-center justify-between border-b border-slate-800 px-6 py-4">
-        <h3 className="text-sm font-semibold text-white">
-          Dashboard
-        </h3>
+      {/* Background Glow */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute left-1/2 top-0 h-96 w-96 -translate-x-1/2 rounded-full bg-cyan-500/10 blur-[140px]" />
+      </div>
 
-        <div className="flex items-center gap-2">
-          <motion.div
-            variants={pulse}
-            animate="animate"
-            className="h-2 w-2 rounded-full bg-green-500"
-          />
+      <div className="mx-auto max-w-7xl px-6">
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="text-center"
+        >
+          <motion.p
+            variants={staggerItem}
+            className="mb-3 text-sm font-semibold uppercase tracking-[0.35em] text-cyan-400"
+          >
+            Dashboard Preview
+          </motion.p>
 
-          <span className="text-xs font-medium text-green-400">
-            Live
-          </span>
+          <motion.h2
+            variants={staggerItem}
+            className="mx-auto max-w-4xl text-4xl font-bold leading-tight text-white md:text-5xl"
+          >
+            Monitor Your Infrastructure In Real Time
+          </motion.h2>
+
+          <motion.p
+            variants={staggerItem}
+            className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-slate-400"
+          >
+            Get complete visibility into your deployments, services,
+            infrastructure health, and performance from one modern cloud
+            dashboard.
+          </motion.p>
+        </motion.div>
+
+        {/* Dashboard Content */}
+        <div className="mt-20">
+          {/* We will build this in the next step */}
         </div>
       </div>
-
-      {/* Content */}
-      <div className="space-y-6 p-6">
-        {/* Deployments */}
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          animate="visible"
-        >
-          <h4 className="mb-3 text-xs font-semibold uppercase tracking-widest text-slate-400">
-            Deployments
-          </h4>
-
-          <div className="space-y-2">
-            {services.map((service) => (
-              <motion.div
-                key={service.id}
-                variants={staggerItem}
-                className="flex items-center justify-between rounded-lg bg-slate-800/50 px-3 py-2"
-              >
-                <span className="text-sm text-slate-300">
-                  {service.name}
-                </span>
-
-                {service.status === "running" ? (
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="h-4 w-4 text-green-500" />
-
-                    <span className="text-xs font-medium text-green-400">
-                      Running
-                    </span>
-                  </div>
-                ) : (
-                  <div className="flex items-center gap-2">
-                    <Clock className="h-4 w-4 text-yellow-500" />
-
-                    <span className="text-xs font-medium text-yellow-400">
-                      Building
-                    </span>
-                  </div>
-                )}
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Metrics */}
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          animate="visible"
-        >
-          <h4 className="mb-3 text-xs font-semibold uppercase tracking-widest text-slate-400">
-            Metrics
-          </h4>
-
-          <div className="grid grid-cols-2 gap-3">
-            {metrics.map((metric) => (
-              <motion.div
-                key={metric.id}
-                variants={staggerItem}
-                whileHover={{ y: -4 }}
-                className="rounded-lg border border-slate-700 bg-slate-800/50 p-3 transition-colors hover:border-cyan-500/30"
-              >
-                <div className="mb-2 flex items-center gap-2">
-                  <span className="text-cyan-400">
-                    {metric.icon}
-                  </span>
-
-                  <span className="text-xs text-slate-400">
-                    {metric.label}
-                  </span>
-                </div>
-
-                <p className="text-sm font-semibold text-white">
-                  {metric.value}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Footer */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
-          className="border-t border-slate-800 pt-4"
-        >
-          <p className="text-xs text-slate-400">
-            Last updated{" "}
-            <span className="text-slate-300">
-              2 seconds ago
-            </span>
-          </p>
-        </motion.div>
-      </div>
-    </motion.div>
+    </section>
   );
 };
