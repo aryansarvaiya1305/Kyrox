@@ -1,5 +1,5 @@
 import prisma from "../config/prisma";
-import { hashPassword } from "../utils/hash";
+import { hashPassword, comparePassword } from "../utils/hash";
 import { generateToken } from "../utils/jwt";
 
 interface RegisterUserInput {
@@ -32,6 +32,41 @@ export const registerUser = async ({
       password: hashedPassword,
     },
   });
+
+  const token = generateToken(user.id);
+
+  return {
+    token,
+    user: {
+      id: user.id,
+      name: user.name,
+      email: user.email,
+    },
+  };
+};
+
+export const loginUser = async (
+  email: string,
+  password: string
+) => {
+  const user = await prisma.user.findUnique({
+    where: {
+      email,
+    },
+  });
+
+  if (!user) {
+    throw new Error("Invalid email or password");
+  }
+
+  const isPasswordValid = await comparePassword(
+    password,
+    user.password
+  );
+
+  if (!isPasswordValid) {
+    throw new Error("Invalid email or password");
+  }
 
   const token = generateToken(user.id);
 
