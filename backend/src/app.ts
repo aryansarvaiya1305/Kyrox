@@ -11,7 +11,7 @@ app.use(cors());
 app.use(helmet());
 app.use(express.json());
 
-// API Welcome
+// Welcome Route
 app.get(`${env.API_PREFIX}`, (req, res) => {
   res.json({
     success: true,
@@ -19,7 +19,7 @@ app.get(`${env.API_PREFIX}`, (req, res) => {
   });
 });
 
-// Register all routes
-app.use(routes);
+// Register All Routes
+app.use(env.API_PREFIX, routes);
 
 export default app;
