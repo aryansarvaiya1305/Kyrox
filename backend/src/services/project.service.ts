@@ -8,6 +8,7 @@ interface CreateProjectInput {
   userId: string;
 }
 
+// Create Project
 export const createProject = async (data: CreateProjectInput) => {
   const project = await prisma.project.create({
     data: {
@@ -20,4 +21,18 @@ export const createProject = async (data: CreateProjectInput) => {
   });
 
   return project;
+};
+
+// Get All Projects of Logged-in User
+export const getProjects = async (userId: string) => {
+  const projects = await prisma.project.findMany({
+    where: {
+      userId,
+    },
+    orderBy: {
+      createdAt: "desc",
+    },
+  });
+
+  return projects;
 };
