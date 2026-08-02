@@ -1,5 +1,8 @@
 import { Request, Response } from "express";
-import { createProject, getProjects } from "../services/project.service";
+import {
+  createProject,
+  getProjects,
+} from "../services/project.service";
 
 // Create Project
 export const create = async (req: Request, res: Response) => {
@@ -9,7 +12,7 @@ export const create = async (req: Request, res: Response) => {
       userId: req.user.id,
     });
 
-    res.status(201).json({
+    return res.status(201).json({
       success: true,
       message: "Project created successfully",
       data: project,
@@ -17,7 +20,7 @@ export const create = async (req: Request, res: Response) => {
   } catch (error) {
     console.error(error);
 
-    res.status(500).json({
+    return res.status(500).json({
       success: false,
       message: "Failed to create project",
     });
@@ -29,14 +32,14 @@ export const getAll = async (req: Request, res: Response) => {
   try {
     const projects = await getProjects(req.user.id);
 
-    res.status(200).json({
+    return res.status(200).json({
       success: true,
       data: projects,
     });
   } catch (error) {
     console.error(error);
 
-    res.status(500).json({
+    return res.status(500).json({
       success: false,
       message: "Failed to fetch projects",
     });

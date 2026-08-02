@@ -10,7 +10,7 @@ interface CreateProjectInput {
 
 // Create Project
 export const createProject = async (data: CreateProjectInput) => {
-  const project = await prisma.project.create({
+  return prisma.project.create({
     data: {
       name: data.name,
       description: data.description,
@@ -19,13 +19,11 @@ export const createProject = async (data: CreateProjectInput) => {
       userId: data.userId,
     },
   });
-
-  return project;
 };
 
-// Get All Projects of Logged-in User
+// Get All Projects
 export const getProjects = async (userId: string) => {
-  const projects = await prisma.project.findMany({
+  return prisma.project.findMany({
     where: {
       userId,
     },
@@ -33,6 +31,4 @@ export const getProjects = async (userId: string) => {
       createdAt: "desc",
     },
   });
-
-  return projects;
 };
