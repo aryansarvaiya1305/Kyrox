@@ -4,14 +4,8 @@ import jwt from "jsonwebtoken";
 const JWT_SECRET =
   process.env.JWT_SECRET || "change_this_secret_in_production";
 
-export interface AuthRequest extends Request {
-  user?: {
-    userId: string;
-  };
-}
-
 export const authenticate = (
-  req: AuthRequest,
+  req: Request,
   res: Response,
   next: NextFunction
 ) => {
@@ -38,7 +32,9 @@ export const authenticate = (
       userId: string;
     };
 
-    req.user = decoded;
+    req.user = {
+      id: decoded.userId,
+    };
 
     next();
   } catch (error) {
