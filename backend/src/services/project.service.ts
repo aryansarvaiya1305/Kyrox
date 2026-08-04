@@ -1,5 +1,8 @@
 import prisma from "../config/prisma";
 
+// ===============================
+// Create Project
+// ===============================
 interface CreateProjectInput {
   name: string;
   description?: string;
@@ -8,8 +11,9 @@ interface CreateProjectInput {
   userId: string;
 }
 
-// Create Project
-export const createProject = async (data: CreateProjectInput) => {
+export const createProject = async (
+  data: CreateProjectInput
+) => {
   return prisma.project.create({
     data: {
       name: data.name,
@@ -21,14 +25,33 @@ export const createProject = async (data: CreateProjectInput) => {
   });
 };
 
+// ===============================
 // Get All Projects
-export const getProjects = async (userId: string) => {
+// ===============================
+export const getProjects = async (
+  userId: string
+) => {
   return prisma.project.findMany({
     where: {
       userId,
     },
     orderBy: {
       createdAt: "desc",
+    },
+  });
+};
+
+// ===============================
+// Get Single Project
+// ===============================
+export const getProjectById = async (
+  projectId: string,
+  userId: string
+) => {
+  return prisma.project.findFirst({
+    where: {
+      id: projectId,
+      userId,
     },
   });
 };

@@ -2,6 +2,10 @@
   "compilerOptions": {
     "target": "ES2022",
     "module": "CommonJS",
+    "moduleResolution": "node",
+
+    "ignoreDeprecations": "6.0",
+
     "lib": ["ES2022"],
 
     "rootDir": "./src",
@@ -9,15 +13,20 @@
 
     "strict": true,
     "esModuleInterop": true,
-    "moduleResolution": "node",
     "resolveJsonModule": true,
 
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
+    "types": ["node"],
 
-    "types": ["node"]
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
   },
 
-  "include": ["src"],
-  "exclude": ["node_modules", "dist"]
+  "include": [
+    "src/**/*.ts"
+  ],
+
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }

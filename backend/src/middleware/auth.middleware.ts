@@ -4,29 +4,31 @@ import jwt from "jsonwebtoken";
 const JWT_SECRET =
   process.env.JWT_SECRET || "change_this_secret_in_production";
 
+export interface AuthRequest extends Request {
+  user: {
+    id: string;
+  };
+}
+
 export const authenticate = (
-  req: Request,
+  req: AuthRequest,
   res: Response,
   next: NextFunction
-) => {
+): void => {
   try {
     const authHeader = req.headers.authorization;
 
     if (!authHeader) {
-      return res.status(401).json({
+      res.status(401).json({
         success: false,
         message: "Access denied. No token provided.",
       });
+      return;
     }
 
-    const token = authHeader.split(" ")[1];
-
-    if (!token) {
-      return res.status(401).json({
-        success: false,
-        message: "Invalid token.",
-      });
-    }
+    const token = authHeader.startsWith("Bearer ")
+      ? authHeader.split(" ")[1]
+      : authHeader;
 
     const decoded = jwt.verify(token, JWT_SECRET) as {
       userId: string;
@@ -38,9 +40,9 @@ export const authenticate = (
 
     next();
   } catch (error) {
-    return res.status(401).json({
+    res.status(401).json({
       success: false,
       message: "Unauthorized.",
     });
   }
-};
+}

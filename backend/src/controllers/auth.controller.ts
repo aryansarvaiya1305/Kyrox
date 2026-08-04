@@ -6,6 +6,9 @@ import {
   loginUser,
 } from "../services/auth.service";
 
+// ===============================
+// Register
+// ===============================
 export const register = async (
   req: Request,
   res: Response
@@ -29,6 +32,9 @@ export const register = async (
   }
 };
 
+// ===============================
+// Login
+// ===============================
 export const login = async (
   req: Request,
   res: Response
@@ -54,6 +60,9 @@ export const login = async (
   }
 };
 
+// ===============================
+// Get Current User
+// ===============================
 export const getCurrentUser = async (
   req: AuthRequest,
   res: Response
@@ -61,7 +70,7 @@ export const getCurrentUser = async (
   try {
     const user = await prisma.user.findUnique({
       where: {
-        id: req.user?.userId,
+        id: req.user.id,
       },
       select: {
         id: true,
@@ -83,6 +92,8 @@ export const getCurrentUser = async (
       data: user,
     });
   } catch (error) {
+    console.error(error);
+
     return res.status(500).json({
       success: false,
       message: "Internal server error",
