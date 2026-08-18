@@ -3,6 +3,7 @@ import prisma from "../config/prisma";
 // ===============================
 // Create Project
 // ===============================
+
 interface CreateProjectInput {
   name: string;
   description?: string;
@@ -28,6 +29,7 @@ export const createProject = async (
 // ===============================
 // Get All Projects
 // ===============================
+
 export const getProjects = async (
   userId: string
 ) => {
@@ -44,6 +46,7 @@ export const getProjects = async (
 // ===============================
 // Get Single Project
 // ===============================
+
 export const getProjectById = async (
   projectId: string,
   userId: string
@@ -52,6 +55,46 @@ export const getProjectById = async (
     where: {
       id: projectId,
       userId,
+    },
+  });
+};
+
+// ===============================
+// Update Project
+// ===============================
+
+interface UpdateProjectInput {
+  name?: string;
+  description?: string;
+  repository?: string;
+  framework?: string;
+}
+
+export const updateProject = async (
+  projectId: string,
+  userId: string,
+  data: UpdateProjectInput
+) => {
+  const project = await prisma.project.findFirst({
+    where: {
+      id: projectId,
+      userId,
+    },
+  });
+
+  if (!project) {
+    return null;
+  }
+
+  return prisma.project.update({
+    where: {
+      id: projectId,
+    },
+    data: {
+      name: data.name,
+      description: data.description,
+      repository: data.repository,
+      framework: data.framework,
     },
   });
 };

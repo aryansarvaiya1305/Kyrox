@@ -3,6 +3,7 @@ import {
   createProject,
   getProjects,
   getProjectById,
+  updateProject,
 } from "../services/project.service";
 
 // ===============================
@@ -80,6 +81,41 @@ export const getOne = async (req: Request, res: Response) => {
     return res.status(500).json({
       success: false,
       message: "Failed to fetch project",
+    });
+  }
+};
+
+// ===============================
+// Update Project
+// ===============================
+export const update = async (req: Request, res: Response) => {
+  try {
+    const projectId = req.params.id as string;
+
+    const project = await updateProject(
+      projectId,
+      req.user.id,
+      req.body
+    );
+
+    if (!project) {
+      return res.status(404).json({
+        success: false,
+        message: "Project not found",
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      message: "Project updated successfully",
+      data: project,
+    });
+  } catch (error) {
+    console.error(error);
+
+    return res.status(500).json({
+      success: false,
+      message: "Failed to update project",
     });
   }
 };
