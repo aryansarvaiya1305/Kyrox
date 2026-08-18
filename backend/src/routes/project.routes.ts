@@ -5,6 +5,7 @@ import {
   getAll,
   getOne,
   update,
+  remove,
 } from "../controllers/project.controller";
 
 import { authenticate } from "../middleware/auth.middleware";
@@ -34,5 +35,11 @@ router.post("/", authenticate, create);
 // ==============================
 
 router.put("/:id", authenticate, update);
+
+// ==============================
+// Delete Project
+// ==============================
+
+router.delete("/:id", authenticate, remove);
 
 export default router;

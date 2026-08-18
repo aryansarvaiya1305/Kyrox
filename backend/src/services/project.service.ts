@@ -98,3 +98,29 @@ export const updateProject = async (
     },
   });
 };
+
+// ===============================
+// Delete Project
+// ===============================
+
+export const deleteProject = async (
+  projectId: string,
+  userId: string
+) => {
+  const project = await prisma.project.findFirst({
+    where: {
+      id: projectId,
+      userId,
+    },
+  });
+
+  if (!project) {
+    return null;
+  }
+
+  return prisma.project.delete({
+    where: {
+      id: projectId,
+    },
+  });
+};

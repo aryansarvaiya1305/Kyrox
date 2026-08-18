@@ -1,9 +1,11 @@
 import { Request, Response } from "express";
+
 import {
   createProject,
   getProjects,
   getProjectById,
   updateProject,
+  deleteProject,
 } from "../services/project.service";
 
 // ===============================
@@ -116,6 +118,40 @@ export const update = async (req: Request, res: Response) => {
     return res.status(500).json({
       success: false,
       message: "Failed to update project",
+    });
+  }
+};
+
+// ===============================
+// Delete Project
+// ===============================
+export const remove = async (req: Request, res: Response) => {
+  try {
+    const projectId = req.params.id as string;
+
+    const project = await deleteProject(
+      projectId,
+      req.user.id
+    );
+
+    if (!project) {
+      return res.status(404).json({
+        success: false,
+        message: "Project not found",
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      message: "Project deleted successfully",
+      data: project,
+    });
+  } catch (error) {
+    console.error(error);
+
+    return res.status(500).json({
+      success: false,
+      message: "Failed to delete project",
     });
   }
 };
