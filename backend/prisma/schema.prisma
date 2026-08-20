@@ -20,15 +20,31 @@ model User {
 }
 
 model Project {
-  id          String   @id @default(cuid())
+  id          String       @id @default(cuid())
   name        String
   description String?
   repository  String?
   framework   String?
-  status      String   @default("ACTIVE")
+  status      String       @default("ACTIVE")
 
   userId      String
-  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user        User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  deployments Deployment[]
+
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+}
+
+model Deployment {
+  id          String   @id @default(cuid())
+  status      String   @default("PENDING")
+  url         String?
+  repository  String?
+  branch      String   @default("main")
+
+  projectId   String
+  project     Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
 
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
